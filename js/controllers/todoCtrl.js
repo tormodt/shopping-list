@@ -91,8 +91,8 @@ todomvc.controller('TodoCtrl', function TodoCtrl($scope, $location, $firebase) {
 	$scope.newTodo = '';
 	$scope.editedTodo = null;
 
-	if ($location.path() === '') {
-		$location.path('/');
+	if ($location.path() !== '/all' || $location.path() !== '/completed') {
+		$location.path('/active');
 	}
 	$scope.location = $location;
 

@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title>Handleliste</title>
 		<link rel="stylesheet" href="bower_components/todomvc-common/base.css">
+        <link rel="stylesheet" href="css/app.css">
 		<style>[ng-cloak] { display: none; }</style>
 	</head>
 	<body>
@@ -11,12 +12,12 @@
 			<header id="header">
 				<h1>Handleliste</h1>
 				<form id="todo-form" ng-submit="addTodo()">
-					<input id="new-todo" placeholder="Hva trenger vi?" ng-model="newTodo" autofocus>
+					<input id="new-todo" placeholder="Ny vare" ng-model="newTodo" autofocus>
 				</form>
 			</header>
 			<section id="main" ng-show="totalCount" ng-cloak>
 				<input id="toggle-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)">
-				<label for="toggle-all">Mark all as complete</label>
+				<label for="toggle-all">Merk alle som kjøpt</label>
 				<ul id="todo-list">
 					<li ng-repeat="(id, todo) in todos | todoFilter" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
 						<div class="view">
@@ -32,23 +33,22 @@
 			</section>
 			<footer id="footer" ng-show="totalCount" ng-cloak>
 				<span id="todo-count"><strong>{{remainingCount}}</strong>
-					<ng-pluralize count="remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
+					<ng-pluralize count="remainingCount" when="{ one: 'vare igjen', other: 'varer igjen' }"></ng-pluralize>
 				</span>
 				<ul id="filters">
 					<li>
-						<a ng-class="{selected: location.path() == '/'} " href="#/">All</a>
+						<a ng-class="{selected: location.path() == '/all'} " href="#/">Alle</a>
 					</li>
 					<li>
-						<a ng-class="{selected: location.path() == '/active'}" href="#/active">Active</a>
+						<a ng-class="{selected: location.path() == '/active'}" href="#/active">Kjøpes</a>
 					</li>
 					<li>
-						<a ng-class="{selected: location.path() == '/completed'}" href="#/completed">Completed</a>
+						<a ng-class="{selected: location.path() == '/completed'}" href="#/completed">Kjøpt</a>
 					</li>
 				</ul>
 			</footer>
 		</section>
 		<footer id="info">
-            <p>Double-click to edit a todo</p>
             <p>Credits:
                 <a href="http://twitter.com/cburgdorf">Christoph Burgdorf</a>,
                 <a href="http://ericbidelman.com">Eric Bidelman</a>,
