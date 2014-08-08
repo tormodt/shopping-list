@@ -72,7 +72,8 @@ body {
 
 #footer {
 	height: 40px;
-    padding-top: 10px;
+    padding-top: 20px;
+    font-size: x-large;
 }
 
 #footer:before {
@@ -82,6 +83,10 @@ body {
 #todo-count,
 #filters {
 	margin-top: 15px;
+}
+
+#filters li {
+    padding-right: 5px;
 }
 
 #info {

@@ -19,7 +19,7 @@
 				<input id="toggle-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)">
 				<label for="toggle-all">Merk alle som kjøpt</label>
 				<ul id="todo-list">
-					<li ng-repeat="(id, todo) in todos | todoFilter" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
+					<li ng-repeat="(id, todo) in todos | todoFilter | orderByPriority | orderBy:'title':false" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
 						<div class="view">
 							<input class="toggle" type="checkbox" ng-model="todo.completed" ng-change="todos.$save(id)">
 							<label ng-dblclick="editTodo(id)">{{todo.title}}</label>
